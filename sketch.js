@@ -1,7 +1,7 @@
-let triSize = 40;   ///////////////////////////////////////////// YOU CAN CHANGE ////////////////////////////////////////////////////////////////////////////////////////////////
+let triSize = 20;   ///////////////////////////////////////////// YOU CAN CHANGE ////////////////////////////////////////////////////////////////////////////////////////////////
 let triAmount = 4;  ///////////////////////////////////////////// DO NOT CHANGE /////////////////////////////////////////////////////////////////////////////////////////////////
 let numRow = 4;     ///////////////////////////////////////////// DO NOT CHANGE /////////////////////////////////////////////////////////////////////////////////////////////////
-
+let xOffset = 0;
 let my =  Math.sqrt(Math.pow(triSize, 2) - Math.pow(triSize/2, 2));
 
 let canvasX = triSize * (32 * 3);  ///////////////////////////////////////////// YOU CAN CHANGE ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -75,140 +75,44 @@ function patternTriFunc(){
 
 function draw() {
   background(0);
-  patternN = 30 ///////////////////////////////////////////// YOU CAN CHANGE ////////////////////////////////////////////////////////////////////////////////////////////////
+  translate (xOffset, 0);
+  xOffset -= 3;
+
+  if (xOffset < (-3 * 52)){
+    xOffset = 0;
+  }
+
+  patternN = 30; ///////////////////////////////////////////// YOU CAN CHANGE ////////////////////////////////////////////////////////////////////////////////////////////////
 
   translate(-triSize * 4, 0);
+  translate(0, -my * 5);
 
-  for (let i = 0; i < patternN; i++){
-    translate(triSize*4, 0);
-    patternTriFunc();
+  for (let i = 0; i < 20; i++){
+    if (i % 2 == 0){
+      translate(0, my*4);
+
+      for (let i = 0; i < patternN; i++){
+        translate(triSize*4, 0);
+        patternTriFunc();
+  }
+    }
+    else{
+      translate(0, my*4);
+
+      for (let i = 0; i < patternN; i++){
+        translate(-triSize*4, 0);
+        patternTriFunc();
   };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(-triSize*4, 0);
-    patternTriFunc();
-  };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(triSize*4, 0);
-    patternTriFunc();
-  };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(-triSize*4, 0);
-    patternTriFunc();
-  };
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(triSize*4, 0);
-    patternTriFunc();
-  };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(-triSize*4, 0);
-    patternTriFunc();
-  };
-
-  for (let i = 0; i < patternN; i++){
-    translate(triSize*4, 0);
-    patternTriFunc();
-  };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(-triSize*4, 0);
-    patternTriFunc();
-  };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(triSize*4, 0);
-    patternTriFunc();
-  };
-
-  for (let i = 0; i < patternN; i++){
-    translate(-triSize*4, 0);
-    patternTriFunc();
-  };
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(triSize*4, 0);
-    patternTriFunc();
-  };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(-triSize*4, 0);
-    patternTriFunc();
-  };
-
-  for (let i = 0; i < patternN; i++){
-    translate(triSize*4, 0);
-    patternTriFunc();
-  };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(-triSize*4, 0);
-    patternTriFunc();
-  };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(triSize*4, 0);
-    patternTriFunc();
-  };
-  for (let i = 0; i < patternN; i++){
-    translate(-triSize*4, 0);
-    patternTriFunc();
-  };
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(triSize*4, 0);
-    patternTriFunc();
-  };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(-triSize*4, 0);
-    patternTriFunc();
-  };
-
-  for (let i = 0; i < patternN; i++){
-    translate(triSize*4, 0);
-    patternTriFunc();
-  };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(-triSize*4, 0);
-    patternTriFunc();
-  };
-
-  translate(0, my*4);
-
-  for (let i = 0; i < patternN; i++){
-    translate(triSize*4, 0);
-    patternTriFunc();
-  };
-
-  noLoop();
+    }
+  }
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+  // noLoop();
+  loop();
 };
+
+function keyPressed() {
+  if (key === "s") {
+      value = 10;
+ }
+}
