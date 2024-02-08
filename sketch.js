@@ -11,6 +11,21 @@ let canvasY = my * (20 * 3);       /////////////////////////////////////////////
 let colorArr = [[255,255,0,255],[0,255,255,255],[255,0,0,0],[0,0,255,0]]
 let revColorArr = [[255,255,0,255],[255,0,255,255],[0,0,0,255],[0,255,0,0]]
 
+
+function remake() {
+  // reassign randomly the pattern arrays
+  for (i = 0; i < 4; i++){
+    for (j = 0; j < 4; j++){
+      colorArr[i][j] = random(255);
+    }
+  }
+  for (i = 0; i < 4; i++){
+    for (j = 0; j < 4; j++){
+      revColorArr[i][j] = random(255);
+    }
+  }
+}
+
 function setup() {
   createCanvas(canvasX, canvasY);
   noStroke()
@@ -113,6 +128,6 @@ function draw() {
 
 function keyPressed() {
   if (key === "s") {
-      value = 10;
+      remake();
  }
 }
